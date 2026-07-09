@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>RefMatches</title>
+    <meta name="viewport" content="width=device-width initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="css/prototype.css">
+    <script src="css/jquery-3.7.1.min.js"></script>
+    <script src="css/prototype.js"></script>
+</head>
+<body>
+    <header class="headerContents">
+        <h2>RefMatches</h3>
+        <h4>ログイン</h4>
+    </header>
+    <main>
+        <section id="description">
+            <h1 class="largeFont">本サイト概要</h1>
+            <h3>あなたが応援してるチームと気になる審判の相性を確認することができるサイトです。</h3>
+            <h3>検索条件を設定して、気になる審判が担当した過去の試合結果を見てみましょう。</h3>
+        </div>
+        <button class="btn-neomorph-dark" id="startButton">始める</button>
+        <div id="overlay"></div>
+        <section id="searchCondition">
+            <button id="closeSearch" class="close-btn">×</button>
+            <div class="selectElement">
+                <label for="categoryLabel">カテゴリ</label>
+                <select id="categorySelect">
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="" class="placeHolder" disabled selected>カテゴリを選択してください</option>
+                    <option value="J1">J1</option>
+                    <option value="J2">J2</option>
+                    <option value="J3">J3</option>
+                </select>
+            </div>
+            <div class="selectElement">
+                <label for="teamLabel">チーム</label>
+                <select id="teamSelect" disabled>
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="" class="placeHolder" disabled selected>チームを選択してください</option>
+                    {% for j1 in teams_j1 %}
+                        <option value="{{ team.team_id }}" class="{{ team.category }}">
+                        {{ team.team_name }}
+                        </option>
+                    {% endfor %}
+
+                </select>
+            </div>
+            <div class="selectElement">            
+                <label for="refreeLabel">主審</label>
+                <select id="refereeSelect">
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="" class="placeHolder" disabled selected>主審を選択してください</option>
+                    <option value="Right">山本 雄大</option>
+                    <option value="Left">荒木 友輔</option>
+                    <option value="None">飯田 淳平</option>
+                </select>
+            </div>
+            <div class="selectElement">
+                <label for="termLabel">期間</label>
+                <select id="termSelect">
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="" class="placeHolder" disabled selected>期間を選択してください</option>
+                    <option value="Right">過去1シーズン</option>
+                    <option value="Left">過去2シーズン</option>
+                    <option value="None">過去3シーズン</option>
+                </select>
+            </div>
+            <button class="btn-neomorph-dark" onclick="location.href='prototype_page2.html'">検索</button>
+        </section>
+    </main>
+</body>
+</html>

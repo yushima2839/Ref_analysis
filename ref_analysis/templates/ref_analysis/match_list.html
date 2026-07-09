@@ -1,0 +1,11 @@
+<h1>Match List</h1>
+
+<ul>
+  {% for m in matches %}
+    <li>
+      {{ m.match_date }} :
+      {{ m.home_team }} {{ m.home_team_goal }} -
+      {{ m.away_team_goal }} {{ m.away_team }}
+    </li>
+  {% endfor %}
+</ul>
