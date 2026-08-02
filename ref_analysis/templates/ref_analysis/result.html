@@ -1,0 +1,21 @@
+<h1>検索結果</h1>
+
+
+{% for match in matches %}
+
+<p>
+{{ match.match_date }}
+
+{{ match.home_team }}
+
+{{ match.home_team_goal }}
+
+-
+
+{{ match.away_team_goal }}
+
+{{ match.away_team }}
+
+</p>
+
+{% endfor %}
