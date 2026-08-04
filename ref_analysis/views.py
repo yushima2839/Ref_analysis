@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import ResultsJ1
 from .models import Teams
 from .models import Referees
+from django.db.models import Q
+from datetime import date
+from .analysis import calculate_stats
 
 
 def search_form(request):
@@ -17,15 +20,27 @@ def search_result(request):
     # 検索条件を取得
     team_id = request.GET.get('team_id')
     referee_id = request.GET.get('referee_id')
-    term = request.GET.get('term')
+    term = int(request.GET.get('term'))
+
+    team_name = Teams.objects.get(team_id=team_id).team_name
+    referee_name = Referees.objects.get(referee_id=referee_id).referee_name
+
+    #検索期間の算出
+    year = date.today().year - 1
+    seasons = [year - i for i in range(term)]
+    season_from = seasons[-1]
+    season_to = seasons[0]
+
+    #対象チームのホーム&アウェイの試合を検索期間分のみ取得
+    matches = ResultsJ1.objects.filter(season__in=seasons).filter(Q(home_team_id=team_id) | Q(away_team_id=team_id)).filter(referee_id=referee_id)
+
+    if matches.count() == 0:
+        return render(request, 'ref_analysis/result.html', {'stats':'0'})
+
+    stats = calculate_stats(matches, team_id)
 
 
-    matches = ResultsJ1.objects.filter(
-        home_team_id=team_id
-    )
-
-
-    return render(request, 'ref_analysis/result.html', {'matches': matches})
+    return render(request, 'ref_analysis/result.html', {'stats': stats, 'team_id': team_id, 'team_name': team_name, 'referee_name': referee_name, 'season_from': season_from, 'season_to': season_to})
 
 def match_list(request):
     matches = ResultsJ1.objects.all()

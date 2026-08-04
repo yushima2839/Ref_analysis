@@ -1,0 +1,526 @@
+body{
+
+    margin:0;
+
+    background-image: url(../img/background1.jpg);
+    background-size: cover;
+
+    font-family:
+    Arial,
+    "Noto Sans JP",
+    sans-serif;
+
+    color:#102040;
+
+}
+
+
+
+.result-container{
+
+    max-width:420px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+
+
+.header{
+
+    border-bottom:1px solid #ddd;
+    color: #ddd;
+
+}
+
+
+
+.team-info{
+
+    text-align:center;
+    color:#ddd
+
+}
+
+
+
+.team-info h2{
+
+    font-size:20px;
+
+}
+
+
+
+.team-info p{
+
+    font-weight:bold;
+
+}
+
+
+
+
+.score-section{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:30px 0;
+
+}
+
+
+
+.score-circle{
+
+    width:230px;
+
+    height:230px;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+        #32d17c 0% 75%,
+        #e8edf3 75%
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.score-circle div{
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+
+
+
+.score-circle span{
+
+    font-size:55px;
+
+    font-weight:bold;
+
+}
+
+
+
+.score-circle small{
+
+    font-size:20px;
+
+}
+
+
+
+
+
+
+.summary{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:6px;
+
+}
+
+
+
+.summary-card{
+
+    background:#40597c;
+
+    color:white;
+
+    padding:10px 3px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+}
+
+
+
+.summary-card strong{
+
+    display:block;
+
+    font-size:24px;
+
+}
+
+
+
+.summary-card p{
+
+    font-size:11px;
+
+    margin:0;
+
+}
+
+
+
+
+
+
+.goal-section{
+
+    margin-top:20px;
+
+    background:white;
+
+    border-radius:15px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    box-shadow:0 5px 15px #ddd;
+
+}
+
+
+
+.goal-section div{
+
+    text-align:center;
+
+    padding:15px;
+
+}
+
+
+
+.goal-section strong{
+
+    font-size:35px;
+
+    color:#20855f;
+
+}
+
+
+
+
+
+.recent-section{
+
+    margin-top:20px;
+
+    background:white;
+
+    padding:10px;
+
+    border-radius:15px;
+
+}
+
+
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+
+
+th{
+
+    font-size:12px;
+
+}
+
+
+
+td{
+
+    text-align:center;
+
+    padding:8px;
+
+    font-size:13px;
+
+}
+
+
+
+.win,
+.draw,
+.lose{
+
+    border-radius:50%;
+
+    padding:4px 7px;
+
+    color:white;
+
+}
+
+
+
+.win{
+
+    background:#2ecc71;
+
+}
+
+
+
+.draw{
+
+    background:#f1c40f;
+
+}
+
+
+
+.lose{
+
+    background:#e74c3c;
+
+}
+
+
+
+
+
+
+/* =========================
+   PC Layout
+========================= */
+
+
+@media screen and (min-width:768px){
+
+
+
+.result-container{
+
+    max-width:1100px;
+
+    padding:40px;
+
+}
+
+
+
+.header h3{
+
+    font-size:28px;
+
+}
+
+
+
+.team-info{
+
+    text-align:left;
+
+    margin-top:30px;
+
+}
+
+
+
+.team-info h2{
+
+    font-size:32px;
+
+}
+
+
+
+.team-info p{
+
+    font-size:18px;
+
+}
+
+
+
+
+.score-section{
+
+    margin:50px 0;
+
+}
+
+
+
+.score-circle{
+
+    width:300px;
+
+    height:300px;
+
+}
+
+
+
+.score-circle div{
+
+    width:240px;
+
+    height:240px;
+
+}
+
+
+
+.score-circle span{
+
+    font-size:75px;
+
+}
+
+
+
+.score-circle small{
+
+    font-size:25px;
+
+}
+
+
+
+
+.summary{
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.summary-card{
+
+    padding:25px 10px;
+
+    border-radius:15px;
+
+}
+
+
+
+.summary-card strong{
+
+    font-size:36px;
+
+}
+
+
+
+.summary-card p{
+
+    font-size:16px;
+
+}
+
+
+
+
+.goal-section{
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    margin-top:40px;
+
+}
+
+
+
+.goal-section div{
+
+    padding:30px;
+
+}
+
+
+
+.goal-section strong{
+
+    font-size:45px;
+
+}
+
+
+
+
+.recent-section{
+
+    margin-top:40px;
+
+    padding:25px;
+
+}
+
+
+
+.recent-section h3{
+
+    font-size:24px;
+
+}
+
+
+
+th{
+
+    font-size:16px;
+
+    padding:15px;
+
+}
+
+
+
+td{
+
+    font-size:16px;
+
+    padding:15px;
+
+}
+
+
+
+}

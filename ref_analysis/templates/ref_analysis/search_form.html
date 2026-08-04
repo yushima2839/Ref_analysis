@@ -4,14 +4,13 @@
 <head>
     <title>RefMatches</title>
     <meta name="viewport" content="width=device-width initial-scale=1"/>
-    <link rel="stylesheet" href="{% static 'ref_analysis/css/prototype.css' %}">
+    <link rel="stylesheet" href="{% static 'ref_analysis/css/search_form.css' %}">
     <script src="{% static 'ref_analysis/js/jquery-3.7.1.min.js' %}"></script>
-    <script src="{% static 'ref_analysis/js/prototype.js' %}"></script>
+    <script src="{% static 'ref_analysis/js/search_form.js' %}"></script>
 </head>
 <body>
     <header class="headerContents">
-        <h2>RefMatches</h3>
-        <h4>ログイン</h4>
+        <h2>審判相性チェッカー</h3>
     </header>
     <main>
         <section id="description">
@@ -22,9 +21,9 @@
         <button class="btn-neomorph-dark" id="startButton">始める</button>
         <div id="overlay"></div>
         <section id="searchCondition">
-            <button id="closeSearch" class="close-btn" type="button">×</button>
-            <div class="selectElement">
-                <form method="GET" action="{% url 'search_result' %}">
+            <form id="searchForm" method="GET" action="{% url 'search_result' %}">
+                <button id="closeSearch" class="close-btn" type="button">×</button>
+                <div class="selectElement">               
                     <label for="categoryLabel">カテゴリ</label>
                     <select id="categorySelect">
                         <button>
@@ -72,14 +71,19 @@
                             <selectedcontent></selectedcontent>
                         </button>
                         <option value="" class="placeHolder" disabled selected>期間を選択してください</option>
-                        <option value="past_1">過去1シーズン</option>
-                        <option value="past_2">過去2シーズン</option>
-                        <option value="past_3">過去3シーズン</option>
+                        <option value="1">過去1シーズン</option>
+                        <option value="2">過去2シーズン</option>
+                        <option value="3">過去3シーズン</option>
                     </select>
                 </div>
                 <button class="btn-neomorph-dark" type="submit">検索</button>
         </form>
         </section>
     </main>
+    <div id="errorPopup">
+        <p>すべての項目を選択してください</p>
+        <button id="errorClose">OK</button>
+    </div>
+    <div id="errorOverlay"></div>
 </body>
 </html>

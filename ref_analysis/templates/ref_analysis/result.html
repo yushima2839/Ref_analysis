@@ -1,21 +1,253 @@
-<h1>検索結果</h1>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>審判相性チェッカー</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'ref_analysis/css/result.css' %}">
+</head>
 
 
-{% for match in matches %}
+<body>
 
-<p>
-{{ match.match_date }}
 
-{{ match.home_team }}
+<div class="result-container">
 
-{{ match.home_team_goal }}
 
--
+<header class="header">
+    <h3>⚽ 審判相性チェッカー</h3>
+</header>
 
-{{ match.away_team_goal }}
+
+
+<section class="team-info">
+
+    <h2>
+        チーム名：{{ team_name }}
+    </h2>
+
+    <p>
+        担当審判：{{ referee_name }}
+        |
+        対象期間：{{ season_from }}シーズン ～ {{season_to}}シーズン
+    </p>
+
+</section>
+
+
+
+
+<section class="score-section">
+</section>
+
+
+
+
+
+<section class="summary">
+
+
+<div class="summary-card">
+    <span>⚽</span>
+    <strong>{{ stats.games }}</strong>
+    <p>試合数</p>
+</div>
+
+
+<div class="summary-card">
+    <span>🏆</span>
+    <strong>{{ stats.wins }}</strong>
+    <p>勝利数</p>
+</div>
+
+
+<div class="summary-card">
+    <span>⚖</span>
+    <strong>{{ stats.draws }}</strong>
+    <p>引分数</p>
+</div>
+
+
+<div class="summary-card">
+    <span>⚽</span>
+    <strong>{{ stats.loses }}</strong>
+    <p>敗北数</p>
+</div>
+
+
+<div class="summary-card">
+    <span>📈</span>
+    <strong>{{ stats.win_rate|floatformat:0 }}%</strong>
+    <p>勝率</p>
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="goal-section">
+
+
+<div>
+    <p>総得点</p>
+    <strong>{{ stats.goals_for }}</strong>
+</div>
+
+
+<div>
+    <p>平均得点</p>
+    <strong>{{ stats.avg_goals_for|floatformat:2 }}</strong>
+</div>
+
+
+<div>
+    <p>総失点</p>
+    <strong>{{ stats.goals_against }}</strong>
+</div>
+
+
+<div>
+    <p>平均失点</p>
+    <strong>{{ stats.avg_goals_against|floatformat:2 }}</strong>
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="recent-section">
+
+
+<h3>
+    直近5試合
+</h3>
+
+
+<table>
+
+
+<tr>
+    <th>日付</th>
+    <th>対戦相手</th>
+    <th>H/A</th>
+    <th>スコア</th>
+    <th>結果</th>
+</tr>
+
+
+
+{% for match in stats.recent_matches %}
+
+
+<tr>
+
+<td>
+{{ match.match_date|date:"Y年n月j日" }}
+</td>
+
+
+
+<td>
+
+{% if match.home_team_id == team_id %}
 
 {{ match.away_team }}
 
-</p>
+{% else %}
+
+{{ match.home_team }}
+
+{% endif %}
+
+
+</td>
+
+<td>
+{% if match.home_team_id == team_id %}
+H
+{% else %}
+A
+{% endif %}
+</td>
+
+<td>
+
+{% if match.home_team_id == team_id %}
+
+{{ match.home_team_goal }}
+-
+{{ match.away_team_goal }}
+
+{% else %}
+
+{{ match.away_team_goal }}
+-
+{{ match.home_team_goal }}
+
+{% endif %}
+
+</td>
+
+
+
+<td>
+
+{% if match.home_team_goal == match.away_team_goal %}
+
+<span class="draw">D</span>
+
+
+{% elif match.home_team_id == team_id and match.home_team_goal > match.away_team_goal %}
+
+<span class="win">W</span>
+
+
+{% elif match.away_team_id == team_id and match.away_team_goal > match.home_team_goal %}
+
+<span class="win">W</span>
+
+
+{% else %}
+
+<span class="lose">L</span>
+
+{% endif %}
+
+
+</td>
+<td>
+    {{ match.stadium }}
+</td>
+
+
+</tr>
+
 
 {% endfor %}
+
+
+</table>
+
+
+</section>
+
+
+</div>
+
+
+</body>
+</html>

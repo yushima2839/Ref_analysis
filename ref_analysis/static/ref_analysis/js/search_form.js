@@ -59,4 +59,24 @@ $(function(){
         }
         
     });
+
+    // 検索ボタン押下時のイベント
+    $('#searchForm').on('submit', function(e){
+        const category = $('#categorySelect').val();
+        const team = $('#teamSelect').val();
+        const referee = $('#refereeSelect').val();
+        const term =$('#termSelect').val();
+
+        if(!category || !team || !referee || !term ){
+            e.preventDefault();
+            $("#errorPopup").fadeIn(200);
+            $("#errorOverlay").fadeIn(200);
+        }
+    })
+
+    // ポップアップの閉じる処理
+    $("#errorClose").on("click", function(){
+        $("#errorPopup").fadeOut(200);
+        $("#errorOverlay").fadeOut(200);
+    });
 })
