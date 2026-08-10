@@ -42,6 +42,10 @@ def search_result(request):
 
     return render(request, 'ref_analysis/result.html', {'stats': stats, 'team_id': team_id, 'team_name': team_name, 'referee_name': referee_name, 'season_from': season_from, 'season_to': season_to})
 
+
+def back_to_search_form(request):
+    search_form()
+
 def match_list(request):
     matches = ResultsJ1.objects.all()
     return render(request, 'ref_analysis/match_list.html', {'matches':matches})
