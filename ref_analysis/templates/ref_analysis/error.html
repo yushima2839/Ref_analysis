@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>エラー | 審判相性チェッカー</title>
+
+    <link rel="stylesheet" href="{% static 'ref_analysis/css/error.css' %}">
+</head>
+
+<body>
+    <header class="header">
+        <h3>⚽ 審判相性チェッカー</h3>
+    </header>
+
+    <main class="error-container">
+
+        <div class="error-card">
+
+            <div class="error-icon">!</div>
+
+            <h1>エラーが発生しました</h1>
+
+            <p class="error-message">
+                {{ error_message }}
+            </p>
+
+            <a href="{% url 'search_form' %}" class="back-button">
+                トップページに戻る
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

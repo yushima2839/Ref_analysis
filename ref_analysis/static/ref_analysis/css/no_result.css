@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    background-image: url(../img/background1.jpg);
+    background-size: cover;
+    font-family: Arial, "Noto Sans JP", sans-serif;
+    color: #102040;
+    padding: 2.5rem;
+}
+
+.no-result-card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 2.5rem 0rem;
+    text-align: center;
+    margin-top: 1.875rem;
+    margin: 1.875rem 5rem 0rem 5rem;
+}
+
+.no-result-icon {
+    font-size: 2rem; 
+    margin-bottom: 1.25rem;  
+}
+
+.no-result-card h3 {
+    margin-bottom: 0.625rem;
+    color: #102040;
+}
+
+.no-result-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5625rem;
+}
+
+.retry-button {
+    display: inline-block;
+    background: #40597c;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: bold;
+}
+
+.retry-button:hover{
+    background: #32d17c;
+}
+
+.header {
+    border-bottom: 0.0625rem solid #ddd;
+    color: #ddd;
+}
+
+.header h3 {
+    font-size: 1.75rem;
+}
+
+.team-info {
+    text-align: left;
+    color: #ddd;
+}
+
+.team-info h2 {
+    font-size: 2rem;
+}
+
+.team-info p {
+    font-size: 1.125rem;
+    font-weight: bold;
+}

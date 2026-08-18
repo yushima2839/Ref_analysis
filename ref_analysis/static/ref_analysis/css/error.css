@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 2.5rem;
+    background-image: url("../img/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family:
+        Arial,
+        "Noto Sans JP",
+        sans-serif;
+}
+
+.header {
+    border-bottom: 0.0625rem solid #ddd;
+    color: #ddd;
+}
+
+.header h3 {
+    font-size: 1.75rem;
+}
+
+/* エラー画面全体 */
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+/* エラーカード */
+.error-card {
+    width: 100%;
+    max-width: 43.75rem;
+    padding: 2.5rem 1.875rem;
+    text-align: center;
+    background: #fff;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.9375rem;
+    box-shadow: 0 0.5rem 1.875rem rgba(0, 0, 0, 0.4);
+}
+
+.error-card h1 {
+    color: #32d17c;
+}
+
+/* ! アイコン */
+.error-icon {
+    width: 4.0625rem;
+    height: 4.0625rem;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1875rem solid #32d17c;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #32d17c;
+}
+
+/* タイトル */
+.error-card h1 {
+    margin: 0 0 1.25rem;
+    font-size: 1.6rem;
+}
+
+/* エラーメッセージ */
+.error-message {
+    margin: 0 0 1.875rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #40597c;
+}
+
+/* 戻るボタン */
+.back-button {
+    display: inline-block;
+    padding: 0.75rem 1.875rem;
+    border: 0.0625rem solid;
+    border-radius: 0.5rem;
+    background: #40597c;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    background: #32d17c;
+}

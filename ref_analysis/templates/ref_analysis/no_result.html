@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>審判相性チェッカー</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'ref_analysis/css/no_result.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h3>⚽ 審判相性チェッカー</h3>
+    </header>
+    <div class="result-container">
+        <section class="team-info">
+            <h2>
+                チーム名：{{ team_name }}
+            </h2>
+            <p>
+                担当審判：{{ referee_name }}
+                |
+                対象期間：{{ season_from }}シーズン ～ {{ season_to }}シーズン
+            </p>
+
+        </section>
+        <section class="no-result-card">
+            <div class="no-result-icon">⚽</div>
+            <h3>データが見つかりませんでした</h3>
+            <p>
+                <p>
+                    選択した条件に該当する試合は見つかりませんでした。
+                </p>
+            </p>
+            <a href="{% url 'search_form' %}" class="retry-button">
+                検索条件を変更する
+            </a>
+        </section>
+
+</div>
+</body>
