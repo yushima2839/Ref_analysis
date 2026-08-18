@@ -10,7 +10,6 @@ class Teams(models.Model):
     team_category = models.CharField(max_length=50)
 
     class Meta:
-        managed = False  # 既存DBなので Django に作らせない
         db_table = 'teams'
 
     def __str__(self):
@@ -22,8 +21,7 @@ class Referees(models.Model):
     # 主審名
     referee_name = models.CharField(max_length=50)
 
-    class Meta:
-        managed = False  
+    class Meta:  
         db_table = 'referees'
 
     def __str__(self):
@@ -58,7 +56,6 @@ class ResultsJ1(models.Model):
     winner_team_id = models.CharField(max_length=50)
 
     class Meta:
-        managed = False  # 既存DBなので Django に作らせない
         db_table = 'results_J1'
 
 
