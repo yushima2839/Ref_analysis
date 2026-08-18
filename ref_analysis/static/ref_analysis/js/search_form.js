@@ -11,6 +11,7 @@ $(function(){
 
     if(category){
         $("#categorySelect").val(category);
+        $("#categorySelect").css("color", "#102040")
         $("#teamSelect").prop("disabled", false); //チーム選択のdisabled解除
         // 復帰したカテゴリのチームだけ表示
         $("#teamSelect option").hide();
@@ -19,14 +20,17 @@ $(function(){
 
     if(team_id){
         $("#teamSelect").val(team_id);
+        $("#teamSelect").css("color", "#102040")
     }
 
     if(referee_id){
         $("#refereeSelect").val(referee_id);
+        $("#refereeSelect").css("color", "#102040")
     }
 
     if(term){
         $("#termSelect").val(term);
+        $("#termSelect").css("color", "#102040")
     }
     if(sessionStorage.getItem("searchBack") == "true"){
         // オーバーレイ表示
@@ -60,7 +64,9 @@ $(function(){
     $("#categorySelect").on("change", function(){
         $("#teamSelect").prop("disabled", false)
         $("#categorySelect").css("color", "#102040")
+        $("#teamSelect").css("color", "#5b5a5a")
         const league = $(this).val();
+
         // 下のプルダウン全て隠す
         $("#teamSelect option").hide();
         // プレースホルダだけ表示
