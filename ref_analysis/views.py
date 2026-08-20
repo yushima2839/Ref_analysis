@@ -9,7 +9,7 @@ from .analysis import calculate_stats
 
 def search_form(request):
     # 検索フォーム内の情報を取得
-    teams = Teams.objects.all # 全チーム
+    teams = Teams.objects.all() # 全チーム
     referees = Referees.objects.all() # 主審
 
     content = {'teams':teams, 'referees':referees}
@@ -25,7 +25,7 @@ def search_result(request):
 
     # 検索条件の空チェック
     if any(value is None or value == '' for value in [team_id, referee_id, term]):
-        raise ValueError('必要な項目が入力されていません')
+        raise ValueError('必要な項目が入力されていません。')
 
     term = int(term) # 値検証後にint変換
 
